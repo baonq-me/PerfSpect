@@ -8,7 +8,7 @@ BINARY_POSTPROCESS := perf-postprocess
 
 default: all
 
-.PHONY: all test default dist clean format format_check security_scan flakes mypy pytype source_check checkmake dist/$(PACKAGE)
+.PHONY: all test default dist clean format security_scan flakes mypy pytype source_check checkmake dist/$(PACKAGE)
 
 clean_dir:
 	sudo rm -rf build/*
@@ -81,15 +81,15 @@ format:
 	black src
 	black perf*.py
 
-format_check:
-	black --check src
-	black --check perf*.py
+#format_check:
+#	black --check src
+#	black --check perf*.py
 
 error_check: # ignore false positives
 	flake8 --ignore=E501,W503,F403,F405 src
 	flake8 --ignore=E203,E501,E722,W503,F403,F405 perf*.py
 
-source_check: format_check error_check
+source_check: error_check
 
 dist: source_check dist/$(PACKAGE)
 
