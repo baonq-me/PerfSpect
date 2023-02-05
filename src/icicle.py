@@ -3,9 +3,10 @@ import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
 import warnings
-from pandas.core.common import SettingWithCopyWarning
+#from pandas.core.common import SettingWithCopyWarning
 
-warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
+#warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
+
 doc, tag, text = Doc().tagtext()
 metric_parent = {}
 
